@@ -44,3 +44,28 @@ Binary search is
 O(log n)
 
 
+###Mistake (squares of sorted array, attempt 1):
+Passing the given tests does not mean the solution is correct.
+My insert-position counter worked for the test inputs by coincidence
+and broke on [-2, 5].
+
+Lesson:
+Before saying "done", invent my own edge cases:
+mixed negatives/positives, all negatives, single element.
+
+
+###Hidden cost of list operations:
+list.insert(0, x) and list.pop(0) are O(n) — every element shifts.
+list.append(x) and list.pop() are O(1).
+Building a list with insert(0, ...) in a loop makes the whole thing O(n^2).
+
+To reverse: squares.reverse() or squares[::-1] instead of a pop loop.
+
+
+###Two pointers takeaway:
+In a sorted array with negatives, the LARGEST squares are at the EDGES.
+Compare both ends, take the bigger square, move that pointer inward.
+With while left <= right and if/else (>=), no special case is needed
+for equal squares or for the middle element.
+
+
