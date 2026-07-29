@@ -69,3 +69,10 @@ With while left <= right and if/else (>=), no special case is needed
 for equal squares or for the middle element.
 
 
+###reverse() complexity:
+list.reverse() is O(n), NOT O(1) — it swaps elements pairwise.
+Same for the [::-1] slice (which also creates a new copy).
+That is fine: one O(n) reversal at the end keeps the algorithm O(n).
+The trap is reversing AS YOU GO with insert(0, ...) — that is O(n^2).
+
+
